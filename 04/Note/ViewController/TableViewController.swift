@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var diaryTable = UITableView()
     let indentifier = "MyCell"
-    var array = ["2", "3", "5"]
+    var array = ["First title", "Second title", "Third title"]
     override func viewDidLoad() {
         super.viewDidLoad()
         CreateTable()

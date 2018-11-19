@@ -15,7 +15,6 @@
 		FE961C4F219DB15600F627B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE961C4E219DB15600F627B9 /* Assets.xcassets */; };
 		FE961C52219DB15600F627B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE961C50219DB15600F627B9 /* LaunchScreen.storyboard */; };
 		FE961C5B219DB2D900F627B9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE961C5A219DB2D900F627B9 /* Note.swift */; };
-		FECE65EF21A1B80F002B3F60 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECE65EE21A1B80F002B3F60 /* EditViewController.swift */; };
 		FECE65F221A1BB42002B3F60 /* 620343-200.png in Resources */ = {isa = PBXBuildFile; fileRef = FECE65F121A1BB42002B3F60 /* 620343-200.png */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		FE961C51219DB15600F627B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE961C53219DB15600F627B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE961C5A219DB2D900F627B9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		FECE65EE21A1B80F002B3F60 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		FECE65F121A1BB42002B3F60 /* 620343-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "620343-200.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +88,6 @@
 			children = (
 				FE961C46219DB14D00F627B9 /* TableViewController.swift */,
 				FE33A8D2219DC104005EB8B5 /* CreateViewController.swift */,
-				FECE65EE21A1B80F002B3F60 /* EditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -177,7 +174,6 @@
 			files = (
 				FE33A8D3219DC104005EB8B5 /* CreateViewController.swift in Sources */,
 				FE961C4D219DB14D00F627B9 /* Note.xcdatamodeld in Sources */,
-				FECE65EF21A1B80F002B3F60 /* EditViewController.swift in Sources */,
 				FE961C47219DB14D00F627B9 /* TableViewController.swift in Sources */,
 				FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */,
 				FE961C5B219DB2D900F627B9 /* Note.swift in Sources */,
