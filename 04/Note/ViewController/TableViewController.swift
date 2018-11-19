@@ -10,7 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var diaryTable = UITableView()
+    //MARK: - Off AutoresizingMask
+    var diaryTable: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
     let indentifier = "MyCell"
     var array = ["First title", "Second title", "Third title"]
     override func viewDidLoad() {
@@ -24,12 +30,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         diaryTable.isEditing = !diaryTable.isEditing
     }
     func CreateTable() {
-        self.diaryTable = UITableView(frame: view.bounds, style: .plain)
+
+        self.view.backgroundColor = .gray
         self.diaryTable.delegate = self
         self.diaryTable.dataSource = self
         diaryTable.register(UITableViewCell.self, forCellReuseIdentifier: indentifier)
         view.addSubview(diaryTable)
-        diaryTable.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    //MARK: - Constraint UITableView
+        self.diaryTable.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5.0).isActive = true
+        self.diaryTable.topAnchor.constraint(equalTo: view.topAnchor, constant: 70.0).isActive = true
+        self.diaryTable.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5.0).isActive = true
+        self.diaryTable.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5.0).isActive = true
     }
     
     //MARK: - Delegate
