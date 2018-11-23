@@ -27,12 +27,14 @@ class Note: NoteProtocol {
     
     var title: String
     var text: String
+    var image: UIImage
     
     var tags = [TagProtocol]()
     
-    init(title:String, text:String) {
+    init(title:String, text:String, image: UIImage) {
         self.title = title
         self.text = text
+        self.image = image
     }
     func add(_ tag : TagProtocol) {
         tags.append(tag)

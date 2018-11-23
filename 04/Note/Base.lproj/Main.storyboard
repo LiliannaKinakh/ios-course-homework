@@ -175,6 +175,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="wEn-w4-VOX"/>
         <segue reference="ffj-H4-6UJ"/>
     </inferredMetricsTieBreakers>
 </document>

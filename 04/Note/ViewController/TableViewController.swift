@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     @IBAction func edit(_ sender: Any) {
         diaryTable.isEditing = !diaryTable.isEditing
+         diaryTable.reloadData()
     }
     func CreateTable() {
 
@@ -53,13 +54,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: indentifier, for: indexPath)
+        
+        
+        let frameImage = CGRect(x: 5, y: 5, width: (cell.bounds.height - 10) , height: (cell.bounds.height - 10))
+        let imageInCell = UIImageView(frame: frameImage)
+        imageInCell.backgroundColor = .red
+       // imageInCell.layer.borderWidth = 1
+       // imageInCell.layer.borderColor = UIColor.red.cgColor
+        imageInCell.layer.cornerRadius = imageInCell.bounds.height / 2
+        
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = array[indexPath.row]
+        
+        cell.addSubview(imageInCell)
+        cell.textLabel?.translatesAutoresizingMaskIntoConstraints = false
+        cell.textLabel?.leftAnchor.constraint(equalTo: imageInCell.rightAnchor, constant: 10).isActive = true
+        cell.textLabel?.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
+        cell.textLabel?.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 10).isActive = true
+        cell.textLabel?.rightAnchor.constraint(equalTo: cell.rightAnchor, constant: 50).isActive = true
+
+       
         return cell
     }
     //MARK: - Edit
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "Edit", sender: indexPath)
+        
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
@@ -80,6 +100,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let item = array[sourceIndexPath.row]
         array.remove(at: sourceIndexPath.row)
         array.insert(item, at: destinationIndexPath.row)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        diaryTable.reloadData()
     }
 }
 
