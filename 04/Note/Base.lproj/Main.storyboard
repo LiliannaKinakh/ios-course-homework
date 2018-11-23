@@ -21,22 +21,22 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Diary" id="Rz0-d0-zUI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="GFj-Rx-yXV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="meJ-ej-dI6">
+                            <connections>
+                                <action selector="edit:" destination="BYZ-38-t0r" id="mRF-4H-bZ4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GFj-Rx-yXV">
                             <connections>
                                 <action selector="add:" destination="BYZ-38-t0r" id="CrS-eI-b4g"/>
                                 <segue destination="3DH-CP-hgR" kind="show" identifier="Edit" id="wEn-w4-VOX"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="meJ-ej-dI6">
-                            <connections>
-                                <action selector="edit:" destination="BYZ-38-t0r" id="mRF-4H-bZ4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1052" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Brn-Z8-uAE">
@@ -65,10 +65,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-pu-cTs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="253"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUC-zc-830">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="126.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqW-O9-ag6">
                                                 <rect key="frame" x="20" y="20" width="335" height="20.5"/>
@@ -90,12 +90,13 @@
                                             <constraint firstItem="bqW-O9-ag6" firstAttribute="leading" secondItem="xUC-zc-830" secondAttribute="leading" constant="20" id="DOx-4K-Nl6"/>
                                             <constraint firstItem="4rX-iL-39H" firstAttribute="trailing" secondItem="bqW-O9-ag6" secondAttribute="trailing" id="Xpz-r1-sZy"/>
                                             <constraint firstItem="bqW-O9-ag6" firstAttribute="top" secondItem="xUC-zc-830" secondAttribute="top" constant="20" id="a1T-CS-cao"/>
+                                            <constraint firstAttribute="height" constant="125" id="mZh-x4-8b5"/>
                                             <constraint firstItem="4rX-iL-39H" firstAttribute="leading" secondItem="xUC-zc-830" secondAttribute="leading" constant="20" id="pPY-OW-v4f"/>
                                             <constraint firstItem="4rX-iL-39H" firstAttribute="top" secondItem="bqW-O9-ag6" secondAttribute="bottom" constant="20" id="xsH-zb-EKo"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58H-0q-5Fd">
-                                        <rect key="frame" x="0.0" y="126.5" width="375" height="126.5"/>
+                                        <rect key="frame" x="0.0" y="125" width="375" height="125"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQx-Ut-DHg">
                                                 <rect key="frame" x="20" y="20" width="335" height="20.5"/>
@@ -121,30 +122,47 @@
                                             <constraint firstAttribute="trailing" secondItem="RkE-Uo-IAr" secondAttribute="trailing" constant="20" id="pbL-5i-rCA"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7T7-26-k2S">
+                                        <rect key="frame" x="0.0" y="250" width="375" height="125"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXm-hn-fVA">
+                                                <rect key="frame" x="125" y="49" width="125" height="30"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="SaveButton:" destination="3DH-CP-hgR" eventType="touchUpInside" id="pfM-JJ-I2B"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="ffj-H4-6UJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="CXm-hn-fVA" firstAttribute="width" secondItem="7T7-26-k2S" secondAttribute="width" multiplier="1/3" id="89d-xj-kzV"/>
+                                            <constraint firstItem="CXm-hn-fVA" firstAttribute="centerX" secondItem="7T7-26-k2S" secondAttribute="centerX" id="aA9-Zo-KGd"/>
+                                            <constraint firstItem="CXm-hn-fVA" firstAttribute="centerY" secondItem="7T7-26-k2S" secondAttribute="centerY" constant="1.5" id="mTp-mB-7xl"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="7T7-26-k2S" firstAttribute="height" secondItem="58H-0q-5Fd" secondAttribute="height" id="Hn8-FQ-O5B"/>
                                     <constraint firstItem="58H-0q-5Fd" firstAttribute="width" secondItem="xUC-zc-830" secondAttribute="width" id="R3r-yG-3fp"/>
+                                    <constraint firstItem="7T7-26-k2S" firstAttribute="width" secondItem="58H-0q-5Fd" secondAttribute="width" id="f7Z-FG-kOS"/>
                                     <constraint firstItem="58H-0q-5Fd" firstAttribute="height" secondItem="xUC-zc-830" secondAttribute="height" id="fLT-wd-ADa"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fUa-qF-kOD" firstAttribute="bottom" secondItem="R5A-pu-cTs" secondAttribute="bottom" constant="350" id="5dZ-an-Myh"/>
                             <constraint firstItem="R5A-pu-cTs" firstAttribute="trailing" secondItem="fUa-qF-kOD" secondAttribute="trailing" id="inh-gb-bb6"/>
                             <constraint firstItem="R5A-pu-cTs" firstAttribute="leading" secondItem="fUa-qF-kOD" secondAttribute="leading" id="sUG-Zp-JNH"/>
                             <constraint firstItem="R5A-pu-cTs" firstAttribute="top" secondItem="fUa-qF-kOD" secondAttribute="top" id="w9b-pP-H3E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fUa-qF-kOD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" leftItemsSupplementBackButton="YES" id="8Tx-yv-gkD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DFI-vX-93T">
-                            <connections>
-                                <action selector="Save:" destination="3DH-CP-hgR" id="Vkp-jh-oaR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Create" leftItemsSupplementBackButton="YES" id="8Tx-yv-gkD"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="saveButton" destination="CXm-hn-fVA" id="1Vw-gU-73d"/>
                         <outlet property="textLabel" destination="FQx-Ut-DHg" id="FKM-Ia-BAh"/>
                         <outlet property="textTextField" destination="RkE-Uo-IAr" id="9u1-E6-9cF"/>
                         <outlet property="titleLabel" destination="bqW-O9-ag6" id="sBr-oM-amC"/>
@@ -156,4 +174,7 @@
             <point key="canvasLocation" x="1848.8" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ffj-H4-6UJ"/>
+    </inferredMetricsTieBreakers>
 </document>
