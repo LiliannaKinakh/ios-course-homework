@@ -20,6 +20,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupTableView()
     }
     
+    @IBAction func edit(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
+    
     func saveNote(note: Note) {
         allNotes.append(note)
     }
@@ -54,7 +58,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
+    //MARK: - Edit
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Create", sender: indexPath)
+        
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    //MARK: - Delete
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            allNotes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
+    }
+    //MARK: - Move
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = allNotes[sourceIndexPath.row]
+        allNotes.remove(at: sourceIndexPath.row)
+        allNotes.insert(item, at: destinationIndexPath.row)
+    }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
