@@ -17,7 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OcO-vn-pA3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="55d-3i-KhB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OLs-Jd-6u9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OcO-vn-pA3" secondAttribute="trailing" id="3Ir-ao-Api"/>
+                            <constraint firstItem="OcO-vn-pA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BC5-39-4U3"/>
+                            <constraint firstItem="OcO-vn-pA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="D32-hl-cWq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OcO-vn-pA3" secondAttribute="bottom" id="yfz-H8-4CK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Diary" id="Rz0-d0-zUI">
@@ -29,10 +45,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GFj-Rx-yXV">
                             <connections>
                                 <action selector="add:" destination="BYZ-38-t0r" id="CrS-eI-b4g"/>
-                                <segue destination="3DH-CP-hgR" kind="show" identifier="Edit" id="wEn-w4-VOX"/>
+                                <segue destination="3DH-CP-hgR" kind="show" identifier="Create" id="wEn-w4-VOX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="OcO-vn-pA3" id="veL-fh-THD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-pu-cTs">
-                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUC-zc-830">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
@@ -130,7 +149,6 @@
                                                 <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="SaveButton:" destination="3DH-CP-hgR" eventType="touchUpInside" id="pfM-JJ-I2B"/>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="ffj-H4-6UJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -174,8 +192,4 @@
             <point key="canvasLocation" x="1848.8" y="133.5832083958021"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wEn-w4-VOX"/>
-        <segue reference="ffj-H4-6UJ"/>
-    </inferredMetricsTieBreakers>
 </document>
