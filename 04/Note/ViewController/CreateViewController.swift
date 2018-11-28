@@ -40,6 +40,8 @@ class CreateViewController: UIViewController {
         let note = Note(title: title, text: text)
         
         delegate?.saveNote(note: note)
+        
+        navigationController?.popViewController(animated: true)
    
     }
     
