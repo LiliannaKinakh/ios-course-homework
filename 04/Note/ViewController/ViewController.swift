@@ -27,14 +27,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func saveNote(note: Note) {
         allNotes.append(note)
     }
-    //MARK: - Delegate
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Create" {
-            if let dest = segue.destination as? CreateViewController {
-                dest.delegate = self
-            }
-        }
+    
+    func editNote(note:Note, indexOfElement:Int) {
+        allNotes[indexOfElement] = note
+        
     }
+    
+    //MARK: - Delegate
+   
     
     private func setupTableView() {
         tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -60,14 +60,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //MARK: - Edit
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Create", sender: indexPath)
         
+        performSegue(withIdentifier: "Edit", sender: self)
     }
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     //MARK: - Delete
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             allNotes.remove(at: indexPath.row)
@@ -78,11 +78,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let item = allNotes[sourceIndexPath.row]
         allNotes.remove(at: sourceIndexPath.row)
         allNotes.insert(item, at: destinationIndexPath.row)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Create" {
+            if let dest = segue.destination as? CreateViewController {
+                dest.delegate = self
+            }
+        }
+        if segue.identifier == "Edit" {
+            if  let dest = segue.destination as? EditViewController {
+                if let selectedIndex = tableView.indexPathForSelectedRow {
+                    dest.thisNote = allNotes[selectedIndex.row]
+                    dest.pathIndex = selectedIndex.row
+                    dest.delegate = self
+                }
+                
+            }
+        }
+    }
+        
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }

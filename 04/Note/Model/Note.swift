@@ -4,7 +4,9 @@ import Foundation
 
 protocol NoteDelegate {
     var allNotes: [Note] { get set }
+    
     func saveNote(note:Note)
+    func editNote(note:Note, indexOfElement:Int)
     
 }
 

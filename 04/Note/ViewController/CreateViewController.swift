@@ -26,6 +26,7 @@ class CreateViewController: UIViewController {
         attributeToSaveButton()
         
     }
+    
     func attributeToSaveButton() {
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIColor.blue.cgColor

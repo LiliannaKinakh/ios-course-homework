@@ -51,6 +51,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OcO-vn-pA3" id="veL-fh-THD"/>
+                        <segue destination="VQT-YJ-Fe4" kind="show" identifier="Edit" id="flp-J4-GIS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -189,7 +190,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gkg-GI-zZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2434" y="376"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="lFp-Jg-bM7">
+            <objects>
+                <viewController id="VQT-YJ-Fe4" customClass="EditViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8LZ-ro-X5A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJi-Ld-2SY">
+                                <rect key="frame" x="15" y="130" width="345" height="30"/>
+                                <color key="backgroundColor" red="0.29661768960000001" green="1" blue="0.2148086501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P43-N1-xgd">
+                                <rect key="frame" x="15" y="226" width="345" height="30"/>
+                                <color key="backgroundColor" red="0.29661768960000001" green="1" blue="0.2148086501" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxJ-Q1-epc">
+                                <rect key="frame" x="125" y="350.5" width="125" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="VQT-YJ-Fe4" eventType="touchUpInside" id="dUz-x5-mYD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgb-gA-GX6">
+                                <rect key="frame" x="15" y="190" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkG-F7-7sN">
+                                <rect key="frame" x="15" y="94" width="345" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WxJ-Q1-epc" firstAttribute="centerY" secondItem="8pe-ih-8cB" secondAttribute="centerY" id="6om-xN-Oak"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="trailing" secondItem="P43-N1-xgd" secondAttribute="trailing" id="9wU-Bv-3GW"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="WJi-Ld-2SY" secondAttribute="leading" id="Cjr-Uu-G6S"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="trailing" secondItem="WJi-Ld-2SY" secondAttribute="trailing" id="Iid-VA-dxK"/>
+                            <constraint firstItem="WJi-Ld-2SY" firstAttribute="top" secondItem="SkG-F7-7sN" secondAttribute="bottom" constant="15" id="MnO-Ku-9xu"/>
+                            <constraint firstItem="8pe-ih-8cB" firstAttribute="trailing" secondItem="WJi-Ld-2SY" secondAttribute="trailing" constant="15" id="V6e-ZI-xDE"/>
+                            <constraint firstItem="WxJ-Q1-epc" firstAttribute="centerX" secondItem="8pe-ih-8cB" secondAttribute="centerX" id="XoF-xc-YkK"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="zgb-gA-GX6" secondAttribute="leading" id="Yed-wy-phZ"/>
+                            <constraint firstItem="zgb-gA-GX6" firstAttribute="top" secondItem="WJi-Ld-2SY" secondAttribute="bottom" constant="30" id="fU5-bs-wJ1"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="trailing" secondItem="zgb-gA-GX6" secondAttribute="trailing" id="fmz-c3-1BE"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="top" secondItem="8pe-ih-8cB" secondAttribute="top" constant="30" id="gVd-mu-XmB"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="8pe-ih-8cB" secondAttribute="leading" constant="15" id="gn7-ZM-cPL"/>
+                            <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="P43-N1-xgd" secondAttribute="leading" id="iUb-FN-2K3"/>
+                            <constraint firstItem="P43-N1-xgd" firstAttribute="top" secondItem="zgb-gA-GX6" secondAttribute="bottom" constant="15" id="ijH-Ku-v2r"/>
+                            <constraint firstItem="WxJ-Q1-epc" firstAttribute="width" secondItem="8LZ-ro-X5A" secondAttribute="width" multiplier="1/3" id="ufO-VQ-Dxe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8pe-ih-8cB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" id="ZZj-Mb-7tV"/>
+                    <connections>
+                        <outlet property="textLabel" destination="zgb-gA-GX6" id="CBx-6R-tMV"/>
+                        <outlet property="textTextField" destination="P43-N1-xgd" id="1M6-Ji-9aA"/>
+                        <outlet property="titleLabel" destination="SkG-F7-7sN" id="gTX-mF-4C1"/>
+                        <outlet property="titleTextField" destination="WJi-Ld-2SY" id="kkX-ct-hrC"/>
+                        <outlet property="updateButton" destination="WxJ-Q1-epc" id="fSA-9i-5b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLL-LV-lEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2361" y="-651"/>
         </scene>
     </scenes>
 </document>
