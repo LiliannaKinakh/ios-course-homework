@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OcO-vn-pA3">
-                                <rect key="frame" x="0.0" y="92" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="55d-3i-KhB"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </tableView>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EzP-VN-9AB">
-                                <rect key="frame" x="0.0" y="92" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jLj-Mx-AfC">
                                     <size key="itemSize" width="50" height="50"/>
@@ -46,30 +46,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EXT-JM-FNn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="09h-S0-69O"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Table view"/>
-                                    <segment title="Collection view"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EzP-VN-9AB" firstAttribute="top" secondItem="EXT-JM-FNn" secondAttribute="bottom" id="2o1-qW-A8U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OcO-vn-pA3" secondAttribute="trailing" id="3Ir-ao-Api"/>
-                            <constraint firstItem="EXT-JM-FNn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6me-SL-x2Y"/>
-                            <constraint firstItem="EXT-JM-FNn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AaL-1F-ePK"/>
                             <constraint firstItem="OcO-vn-pA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BC5-39-4U3"/>
-                            <constraint firstItem="EXT-JM-FNn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GXs-O0-kcj"/>
-                            <constraint firstItem="EXT-JM-FNn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Lg6-un-19q"/>
                             <constraint firstItem="EzP-VN-9AB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RKl-7Z-jqE"/>
                             <constraint firstItem="EzP-VN-9AB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Rsn-tQ-WPK"/>
-                            <constraint firstItem="EXT-JM-FNn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lxn-ah-7PY"/>
-                            <constraint firstItem="OcO-vn-pA3" firstAttribute="top" secondItem="EXT-JM-FNn" secondAttribute="bottom" id="rio-1p-6fW"/>
+                            <constraint firstItem="EzP-VN-9AB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TCn-gE-ksj"/>
+                            <constraint firstItem="OcO-vn-pA3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ecW-od-an2"/>
                             <constraint firstItem="EzP-VN-9AB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uCq-g2-lZ3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OcO-vn-pA3" secondAttribute="bottom" id="yfz-H8-4CK"/>
                         </constraints>
@@ -249,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gkg-GI-zZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="904"/>
+            <point key="canvasLocation" x="1974" y="904"/>
         </scene>
         <!--Settings-->
         <scene sceneID="EjZ-tc-7YG">
@@ -268,11 +253,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VVE-Kk-aDe">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VVE-Kk-aDe">
                                 <rect key="frame" x="304" y="49" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="nuq-LB-syh"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeMode:" destination="esF-Iu-da9" eventType="valueChanged" id="DCr-rG-XpT"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -287,10 +275,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="8FK-mX-rrn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="labelSettings" destination="azF-L2-W7r" id="KsG-Vz-s1J"/>
+                        <outlet property="switchViewController" destination="VVE-Kk-aDe" id="pdh-lM-G2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43d-Jw-Vlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93.599999999999994" y="903.59820089955031"/>
+            <point key="canvasLocation" x="94" y="904"/>
         </scene>
         <!--Edit-->
         <scene sceneID="lFp-Jg-bM7">
@@ -365,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLL-LV-lEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="-613"/>
+            <point key="canvasLocation" x="1974" y="134"/>
         </scene>
     </scenes>
 </document>
