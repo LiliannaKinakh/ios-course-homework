@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NoteDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NoteDelegate {
  
     var allNotes: [Note] = []
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
+        setupCollectionView()
     }
     
     @IBAction func edit(_ sender: Any) {
@@ -38,6 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func setupTableView() {
         tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+    
+    private func setupCollectionView(){
+        collectionView.register(UINib(nibName: "NoteCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.itemSize = CGSize(width: 80 , height: 80)
+        
+    
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,6 +95,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         allNotes.remove(at: sourceIndexPath.row)
         allNotes.insert(item, at: destinationIndexPath.row)
     }
+    // MARK: UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allNotes.count
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NoteCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        collectionCell.setupWith(note: allNotes[indexPath.row])
+        
+        return collectionCell
+        
+    }
+    
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Edit", sender: self)
+    }
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Create" {
@@ -98,6 +134,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     dest.pathIndex = selectedIndex.row
                     dest.delegate = self
                 }
+                if let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
+                    dest.thisNote = allNotes[selectedIndex.item]
+                    dest.pathIndex = selectedIndex.item
+                    dest.delegate = self
+                    
+                }
                 
             }
         }
@@ -105,6 +147,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        collectionView?.reloadData()
     }
     
 }
