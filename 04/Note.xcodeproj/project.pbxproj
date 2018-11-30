@@ -10,6 +10,7 @@
 		7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */; };
 		7B63F6D721AAE86F00A9BFCC /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */; };
 		7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */; };
+		7B657F4A21B1505B00639E09 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B657F4921B1505B00639E09 /* SettingsViewController.swift */; };
 		FE33A8D3219DC104005EB8B5 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE33A8D2219DC104005EB8B5 /* CreateViewController.swift */; };
 		FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE961C44219DB14D00F627B9 /* AppDelegate.swift */; };
 		FE961C47219DB14D00F627B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE961C46219DB14D00F627B9 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		7B657F4921B1505B00639E09 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE33A8D2219DC104005EB8B5 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		FE961C41219DB14D00F627B9 /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE961C44219DB14D00F627B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				FE961C46219DB14D00F627B9 /* ViewController.swift */,
 				7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */,
 				FE33A8D2219DC104005EB8B5 /* CreateViewController.swift */,
+				7B657F4921B1505B00639E09 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				FE33A8D3219DC104005EB8B5 /* CreateViewController.swift in Sources */,
 				FE961C4D219DB14D00F627B9 /* Note.xcdatamodeld in Sources */,
 				FE961C47219DB14D00F627B9 /* ViewController.swift in Sources */,
+				7B657F4A21B1505B00639E09 /* SettingsViewController.swift in Sources */,
 				FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */,
 				FE961C5B219DB2D900F627B9 /* Note.swift in Sources */,
 				7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */,
