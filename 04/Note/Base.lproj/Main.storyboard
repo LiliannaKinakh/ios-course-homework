@@ -333,7 +333,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxJ-Q1-epc">
-                                <rect key="frame" x="125" y="326" width="125" height="30"/>
+                                <rect key="frame" x="125" y="441" width="125" height="30"/>
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="VQT-YJ-Fe4" eventType="touchUpInside" id="dUz-x5-mYD"/>
@@ -351,10 +351,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDL-KX-bTR">
+                                <rect key="frame" x="137.5" y="291" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="pVh-vA-Nhz"/>
+                                    <constraint firstAttribute="height" constant="100" id="uFv-c3-eO0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WxJ-Q1-epc" firstAttribute="centerY" secondItem="8pe-ih-8cB" secondAttribute="centerY" id="6om-xN-Oak"/>
+                            <constraint firstItem="fDL-KX-bTR" firstAttribute="centerY" secondItem="8pe-ih-8cB" secondAttribute="centerY" id="5RT-Ij-28i"/>
+                            <constraint firstItem="fDL-KX-bTR" firstAttribute="centerX" secondItem="8pe-ih-8cB" secondAttribute="centerX" id="78n-PB-18n"/>
                             <constraint firstItem="SkG-F7-7sN" firstAttribute="trailing" secondItem="P43-N1-xgd" secondAttribute="trailing" id="9wU-Bv-3GW"/>
                             <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="WJi-Ld-2SY" secondAttribute="leading" id="Cjr-Uu-G6S"/>
                             <constraint firstItem="SkG-F7-7sN" firstAttribute="trailing" secondItem="WJi-Ld-2SY" secondAttribute="trailing" id="Iid-VA-dxK"/>
@@ -368,12 +376,14 @@
                             <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="8pe-ih-8cB" secondAttribute="leading" constant="15" id="gn7-ZM-cPL"/>
                             <constraint firstItem="SkG-F7-7sN" firstAttribute="leading" secondItem="P43-N1-xgd" secondAttribute="leading" id="iUb-FN-2K3"/>
                             <constraint firstItem="P43-N1-xgd" firstAttribute="top" secondItem="zgb-gA-GX6" secondAttribute="bottom" constant="15" id="ijH-Ku-v2r"/>
+                            <constraint firstItem="WxJ-Q1-epc" firstAttribute="top" secondItem="fDL-KX-bTR" secondAttribute="bottom" constant="50" id="tpM-Fz-ibM"/>
                             <constraint firstItem="WxJ-Q1-epc" firstAttribute="width" secondItem="8LZ-ro-X5A" secondAttribute="width" multiplier="1/3" id="ufO-VQ-Dxe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8pe-ih-8cB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="ZZj-Mb-7tV"/>
                     <connections>
+                        <outlet property="imageView" destination="fDL-KX-bTR" id="bV1-2u-koq"/>
                         <outlet property="textLabel" destination="zgb-gA-GX6" id="CBx-6R-tMV"/>
                         <outlet property="textTextField" destination="P43-N1-xgd" id="1M6-Ji-9aA"/>
                         <outlet property="titleLabel" destination="SkG-F7-7sN" id="gTX-mF-4C1"/>

@@ -18,6 +18,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var updateButton: UIButton!
     
@@ -29,6 +30,7 @@ class EditViewController: UIViewController {
         
         titleTextField.text = "\(String(describing: thisNote.title))"
         textTextField.text = "\(String(describing: thisNote.text))"
+        imageView.image = thisNote.image
         
         super.viewDidLoad()
 
@@ -44,8 +46,10 @@ class EditViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: Any) {
         let text = textTextField.text ?? ""
         let title = titleTextField.text ?? ""
+       
         
         let editNote = Note(title: title , text: text)
+        editNote.image =  thisNote.image
         
         delegate?.editNote(note: editNote, indexOfElement: pathIndex)
         
