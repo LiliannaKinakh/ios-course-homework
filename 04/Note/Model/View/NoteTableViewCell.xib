@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-BW-bow">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-BW-bow">
                         <rect key="frame" x="10" y="10" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Bcj-BW-bow" secondAttribute="height" multiplier="1:1" id="3Au-2m-CeL"/>

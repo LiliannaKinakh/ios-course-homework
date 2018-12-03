@@ -20,6 +20,7 @@ class NoteTableViewCell: UITableViewCell {
 
         leftImageView.layer.cornerRadius = leftImageView.frame.height / 2
         leftImageView.layer.backgroundColor = UIColor.red.cgColor
+        leftImageView.clipsToBounds = true
         
     }
 
