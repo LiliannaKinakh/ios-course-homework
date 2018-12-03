@@ -8,13 +8,17 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var textTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    
+      var imagepicker = UIImagePickerController()
+    
     
     var delegate: NoteDelegate?
     
@@ -37,13 +41,27 @@ class CreateViewController: UIViewController {
     @IBAction func SaveButton(_ sender: Any) {
         let title = titleTextField.text ?? ""
         let text = textTextField.text ?? ""
+        let image = imageView.image
         
         let note = Note(title: title, text: text)
+        note.image = image
         
         delegate?.saveNote(note: note)
         
+        
         navigationController?.popViewController(animated: true)
    
+    }
+    @IBAction func downloadImageTapped(_ sender: Any) {
+        imagepicker.delegate = self
+        imagepicker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+        self.present(imagepicker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            imageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
     
 }

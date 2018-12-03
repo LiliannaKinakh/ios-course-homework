@@ -30,6 +30,7 @@ class NoteTableViewCell: UITableViewCell {
     
     func setupWith(note: Note) {
         titleLabel.text = note.title
+        leftImageView.image = note.image
         
     }
     

@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-pu-cTs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUC-zc-830">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
@@ -182,8 +182,36 @@
                                             <constraint firstAttribute="trailing" secondItem="RkE-Uo-IAr" secondAttribute="trailing" constant="20" id="pbL-5i-rCA"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7T7-26-k2S">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYf-Dp-9q9">
                                         <rect key="frame" x="0.0" y="250" width="375" height="125"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pQQ-SW-phB">
+                                                <rect key="frame" x="5" y="5" width="115" height="115"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="115" id="lqW-dH-3su"/>
+                                                    <constraint firstAttribute="width" secondItem="pQQ-SW-phB" secondAttribute="height" multiplier="1:1" id="zhj-wJ-6RO"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-cr-zAd">
+                                                <rect key="frame" x="140" y="47.5" width="114" height="30"/>
+                                                <state key="normal" title="Download Image"/>
+                                                <connections>
+                                                    <action selector="downloadImageTapped:" destination="3DH-CP-hgR" eventType="touchUpInside" id="8jE-av-d7o"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.77886474240000003" blue="0.72457417059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="pQQ-SW-phB" secondAttribute="bottom" constant="5" id="1bA-pT-CKP"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L9a-cr-zAd" secondAttribute="trailing" constant="20" symbolic="YES" id="E2l-cm-DcL"/>
+                                            <constraint firstItem="L9a-cr-zAd" firstAttribute="leading" secondItem="pQQ-SW-phB" secondAttribute="trailing" constant="20" id="Lez-ar-IbM"/>
+                                            <constraint firstItem="L9a-cr-zAd" firstAttribute="centerY" secondItem="pYf-Dp-9q9" secondAttribute="centerY" id="b9p-tX-8bb"/>
+                                            <constraint firstItem="pQQ-SW-phB" firstAttribute="leading" secondItem="pYf-Dp-9q9" secondAttribute="leading" constant="5" id="tQZ-JO-RWQ"/>
+                                            <constraint firstItem="pQQ-SW-phB" firstAttribute="top" secondItem="pYf-Dp-9q9" secondAttribute="top" constant="5" id="zsQ-oU-tfV"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7T7-26-k2S">
+                                        <rect key="frame" x="0.0" y="375" width="375" height="125"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXm-hn-fVA">
                                                 <rect key="frame" x="125" y="49" width="125" height="30"/>
@@ -206,6 +234,7 @@
                                     <constraint firstItem="58H-0q-5Fd" firstAttribute="width" secondItem="xUC-zc-830" secondAttribute="width" id="R3r-yG-3fp"/>
                                     <constraint firstItem="7T7-26-k2S" firstAttribute="width" secondItem="58H-0q-5Fd" secondAttribute="width" id="f7Z-FG-kOS"/>
                                     <constraint firstItem="58H-0q-5Fd" firstAttribute="height" secondItem="xUC-zc-830" secondAttribute="height" id="fLT-wd-ADa"/>
+                                    <constraint firstItem="pYf-Dp-9q9" firstAttribute="height" secondItem="7T7-26-k2S" secondAttribute="height" id="fxG-EX-ius"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -221,6 +250,7 @@
                     <navigationItem key="navigationItem" title="Create" leftItemsSupplementBackButton="YES" id="8Tx-yv-gkD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="imageView" destination="pQQ-SW-phB" id="aPA-YZ-Ev1"/>
                         <outlet property="saveButton" destination="CXm-hn-fVA" id="1Vw-gU-73d"/>
                         <outlet property="textLabel" destination="FQx-Ut-DHg" id="FKM-Ia-BAh"/>
                         <outlet property="textTextField" destination="RkE-Uo-IAr" id="9u1-E6-9cF"/>
@@ -230,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gkg-GI-zZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="904"/>
+            <point key="canvasLocation" x="1973.5999999999999" y="903.59820089955031"/>
         </scene>
         <!--Settings-->
         <scene sceneID="EjZ-tc-7YG">
