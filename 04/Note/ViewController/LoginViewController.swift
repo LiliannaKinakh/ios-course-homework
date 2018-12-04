@@ -7,27 +7,33 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    var some = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        passwordLabel.text = UserDefaults.standard.string(forKey: "some")
+        
     }
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        
+    let email = emailTextField.text ?? "1"
+    let password = passwordTextField.text ?? "2"
+
+    let keychain = Keychain(service: "com.note.project.ios.lits")
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    try? keychain.set(email, key: "keyEmail")
+    try? keychain.set(password, key: "keyPassword")
+        
+    passwordLabel.text = try? keychain.getString("keyEmail") as! String
+    emailLabel.text = try? keychain.getString("keyEmail") as! String
+        some = try! keychain.getString("keyEmail") as! String
+        UserDefaults.standard.set(some, forKey: "some") 
     }
-    */
-
 }

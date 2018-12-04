@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Yb-QK-HNc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bgr-t5-pkw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -116,6 +116,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rm-4u-Wab">
                                 <rect key="frame" x="168.5" y="422" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="Bgr-t5-pkw" eventType="touchUpInside" id="ome-Bk-Xya"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,7 +141,9 @@
                         <viewLayoutGuide key="safeArea" id="9oG-SS-wsv"/>
                     </view>
                     <connections>
+                        <outlet property="emailLabel" destination="ntg-PW-WXC" id="Xaf-Bp-qjf"/>
                         <outlet property="emailTextField" destination="rfC-Zi-GV4" id="Wvs-Gc-7Pl"/>
+                        <outlet property="passwordLabel" destination="yap-xj-gjV" id="dGb-Wq-byG"/>
                         <outlet property="passwordTextField" destination="RoA-J2-wTX" id="paS-4F-PCS"/>
                     </connections>
                 </viewController>
