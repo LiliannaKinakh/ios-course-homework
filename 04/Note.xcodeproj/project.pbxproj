@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B089C3121B5DFA9001F412E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3021B5DFA9001F412E /* CoreDataStack.swift */; };
+		7B089C3321B5F02F001F412E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3221B5F02F001F412E /* LoginViewController.swift */; };
+		7B089C3821B6A0A4001F412E /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */; };
+		7B089C3921B6A0A4001F412E /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */; };
+		7B089C3A21B6A0A4001F412E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */; };
+		7B089C3B21B6A0A4001F412E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */; };
 		7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */; };
 		7B63F6D721AAE86F00A9BFCC /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */; };
 		7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */; };
@@ -25,6 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B089C3021B5DFA9001F412E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		7B089C3221B5F02F001F412E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +90,10 @@
 		FE961C38219DB14C00F627B9 = {
 			isa = PBXGroup;
 			children = (
+				7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */,
+				7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */,
+				7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */,
+				7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */,
 				FE961C43219DB14D00F627B9 /* Note */,
 				FE961C42219DB14D00F627B9 /* Products */,
 			);
@@ -104,6 +120,7 @@
 				FE961C4E219DB15600F627B9 /* Assets.xcassets */,
 				FE961C53219DB15600F627B9 /* Info.plist */,
 				FE961C4B219DB14D00F627B9 /* Note.xcdatamodeld */,
+				7B089C3021B5DFA9001F412E /* CoreDataStack.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -115,6 +132,7 @@
 				7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */,
 				FE33A8D2219DC104005EB8B5 /* CreateViewController.swift */,
 				7B657F4921B1505B00639E09 /* SettingsViewController.swift */,
+				7B089C3221B5F02F001F412E /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -204,12 +222,18 @@
 				7BFA556721B18514002DC6FA /* NoteCollectionViewCell.swift in Sources */,
 				FE33A8D3219DC104005EB8B5 /* CreateViewController.swift in Sources */,
 				FE961C4D219DB14D00F627B9 /* Note.xcdatamodeld in Sources */,
+				7B089C3921B6A0A4001F412E /* Note+CoreDataProperties.swift in Sources */,
 				FE961C47219DB14D00F627B9 /* ViewController.swift in Sources */,
 				7B657F4A21B1505B00639E09 /* SettingsViewController.swift in Sources */,
+				7B089C3A21B6A0A4001F412E /* User+CoreDataClass.swift in Sources */,
+				7B089C3121B5DFA9001F412E /* CoreDataStack.swift in Sources */,
+				7B089C3B21B6A0A4001F412E /* User+CoreDataProperties.swift in Sources */,
 				FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */,
 				FE961C5B219DB2D900F627B9 /* Note.swift in Sources */,
 				7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */,
+				7B089C3821B6A0A4001F412E /* Note+CoreDataClass.swift in Sources */,
 				7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */,
+				7B089C3321B5F02F001F412E /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9GW49H8XYF;
+				DEVELOPMENT_TEAM = 6SN3R2DE34;
 				INFOPLIST_FILE = Note/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,7 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9GW49H8XYF;
+				DEVELOPMENT_TEAM = 6SN3R2DE34;
 				INFOPLIST_FILE = Note/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

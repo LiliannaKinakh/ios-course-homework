@@ -9,8 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NoteDelegate {
- 
-    var allNotes: [Note] = []
+    var allNotes: [Notes] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,19 +18,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if let seg = UserDefaults.standard.object(forKey: "segment") {
+//            print("\(seg)")
+//        }
+//         let someValue = UserDefaults.standard.value(forKeyPath: "segment")
+//         print("\(someValue)")
+//
+//        if let seg2 = UserDefaults.standard.object(forKey: "switchVC"){
+//            print("\(seg2)")
+//        }
+//        var setting = Settings(darkMood: false, viewCell: true )
+//        
+//        tableView.isHidden = setting.getDarkMood()
+//        print(setting.getDarkMood)
+        
         setupTableView()
         setupCollectionView()
     }
+    
     
     @IBAction func edit(_ sender: Any) {
         tableView.isEditing = !tableView.isEditing
     }
     
-    func saveNote(note: Note) {
+    func saveNote(note: Notes) {
         allNotes.append(note)
     }
     
-    func editNote(note:Note, indexOfElement:Int) {
+    func editNote(note:Notes, indexOfElement:Int) {
         allNotes[indexOfElement] = note
         
     }
@@ -148,6 +162,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
         collectionView?.reloadData()
+        var setting = Settings(darkMood: false, viewCell: false)
+        
+        tableView.isHidden = setting.getDarkMood()
+        collectionView.isHidden = setting.getviewCell()
     }
     
 }

@@ -40,7 +40,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         let text = textTextField.text ?? ""
         let image = imageView.image
         
-        let note = Note(title: title, text: text)
+        let note = Notes(title: title, text: text)
         note.image = image
         
         delegate?.saveNote(note: note)

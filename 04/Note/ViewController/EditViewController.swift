@@ -10,7 +10,7 @@ import UIKit
 
 class EditViewController: UIViewController {
     
-    var thisNote = Note(title: "", text: "")
+    var thisNote = Notes(title: "", text: "")
     var pathIndex:Int = 0
     var delegate: NoteDelegate?
     
@@ -48,7 +48,7 @@ class EditViewController: UIViewController {
         let title = titleTextField.text ?? ""
        
         
-        let editNote = Note(title: title , text: text)
+        let editNote = Notes(title: title , text: text)
         editNote.image =  thisNote.image
         
         delegate?.editNote(note: editNote, indexOfElement: pathIndex)

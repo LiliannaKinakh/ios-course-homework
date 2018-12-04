@@ -3,14 +3,14 @@ import UIKit
 import Foundation
 
 protocol NoteDelegate {
-    var allNotes: [Note] { get set }
+    var allNotes: [Notes] { get set }
     
-    func saveNote(note:Note)
-    func editNote(note:Note, indexOfElement:Int)
+    func saveNote(note:Notes)
+    func editNote(note:Notes, indexOfElement:Int)
     
 }
 
-class Note {
+class Notes {
     
     var title: String
     var text: String
