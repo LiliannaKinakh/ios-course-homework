@@ -15,11 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
-    var some = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordLabel.text = UserDefaults.standard.string(forKey: "some")
-        
+        self.hideKeyboard()
     }
     @IBAction func loginButtonTapped(_ sender: Any) {
         
@@ -31,9 +30,5 @@ class LoginViewController: UIViewController {
     try? keychain.set(email, key: "keyEmail")
     try? keychain.set(password, key: "keyPassword")
         
-    passwordLabel.text = try? keychain.getString("keyEmail") as! String
-    emailLabel.text = try? keychain.getString("keyEmail") as! String
-        some = try! keychain.getString("keyEmail") as! String
-        UserDefaults.standard.set(some, forKey: "some") 
     }
 }

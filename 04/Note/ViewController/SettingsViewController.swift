@@ -43,9 +43,20 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        switchButton()
+        switchViewController.isOn = UserDefaults.standard.bool(forKey: "darkMood")
+        viewCells.isOn = UserDefaults.standard.bool(forKey: "viewCell")
     }
 
     @IBAction func changeMode(_ sender: Any) {
+        switchButton()
+    }
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        var setting = Settings(darkMood:switchViewController.isOn, viewCell: viewCells.isOn)
+        setting.saveSetting(switchViewController.isOn, viewCells.isOn)
+        
+    }
+    func switchButton() {
         if switchViewController.isOn == true {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
@@ -60,26 +71,8 @@ class SettingsViewController: UIViewController {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white //user global variable
-            UIApplication.shared.statusBarStyle = .default
             self.tabBarController?.tabBar.barTintColor = UIColor.white
             view.backgroundColor = UIColor.groupTableViewBackground
         }
-    }
-    @IBAction func saveButtonTapped(_ sender: Any) {
-//        UserDefaults.standard.set(switchViewController.isOn, forKey: "switchVC")
-//        UserDefaults.standard.set(viewCellSegment.selectedSegmentIndex, forKey: "segment")
-//        print("Save")
-        var setting = Settings(darkMood:switchViewController.isOn, viewCell: viewCells.isOn)
-        setting.saveSetting(switchViewController.isOn, viewCells.isOn)
-        
-        print(setting)
-        print(setting.darkMood)
-        print(setting.getDarkMood)
-        print(setting.viewCell)
-        
-        
-        
-        
-        
     }
 }

@@ -18,24 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let seg = UserDefaults.standard.object(forKey: "segment") {
-//            print("\(seg)")
-//        }
-//         let someValue = UserDefaults.standard.value(forKeyPath: "segment")
-//         print("\(someValue)")
-//
-//        if let seg2 = UserDefaults.standard.object(forKey: "switchVC"){
-//            print("\(seg2)")
-//        }
-//        var setting = Settings(darkMood: false, viewCell: true )
-//        
-//        tableView.isHidden = setting.getDarkMood()
-//        print(setting.getDarkMood)
-        
         setupTableView()
         setupCollectionView()
     }
-    
     
     @IBAction func edit(_ sender: Any) {
         tableView.isEditing = !tableView.isEditing
@@ -164,7 +149,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         collectionView?.reloadData()
         var setting = Settings(darkMood: false, viewCell: false)
         
-        tableView.isHidden = setting.getDarkMood()
+        tableView.isHidden = !setting.getviewCell()
         collectionView.isHidden = setting.getviewCell()
     }
     

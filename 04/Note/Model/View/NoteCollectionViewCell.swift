@@ -20,7 +20,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
 
     func setupWith(note: Notes) {
         titleLabel.text = note.title
-        textLabel.text = "some"
+        textLabel.text = note.text
     }
     
 }

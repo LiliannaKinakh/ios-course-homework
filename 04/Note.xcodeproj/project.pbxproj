@@ -10,10 +10,6 @@
 		161DB7512D7C4CEA0258D767 /* Pods_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE64EA6407FDAFCDD42FB200 /* Pods_Note.framework */; };
 		7B089C3121B5DFA9001F412E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3021B5DFA9001F412E /* CoreDataStack.swift */; };
 		7B089C3321B5F02F001F412E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3221B5F02F001F412E /* LoginViewController.swift */; };
-		7B089C3821B6A0A4001F412E /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */; };
-		7B089C3921B6A0A4001F412E /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */; };
-		7B089C3A21B6A0A4001F412E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */; };
-		7B089C3B21B6A0A4001F412E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */; };
 		7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */; };
 		7B63F6D721AAE86F00A9BFCC /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */; };
 		7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */; };
@@ -29,6 +25,10 @@
 		FE961C52219DB15600F627B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE961C50219DB15600F627B9 /* LaunchScreen.storyboard */; };
 		FE961C5B219DB2D900F627B9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE961C5A219DB2D900F627B9 /* Note.swift */; };
 		FECE65F221A1BB42002B3F60 /* 620343-200.png in Resources */ = {isa = PBXBuildFile; fileRef = FECE65F121A1BB42002B3F60 /* 620343-200.png */; };
+		FEF9C17021B98B0A00D921F1 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16C21B98B0A00D921F1 /* User+CoreDataClass.swift */; };
+		FEF9C17121B98B0A00D921F1 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */; };
+		FEF9C17221B98B0A00D921F1 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16E21B98B0A00D921F1 /* Note+CoreDataClass.swift */; };
+		FEF9C17321B98B0A00D921F1 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16F21B98B0A00D921F1 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +36,6 @@
 		54DADC4A70CBB1AB7259103C /* Pods-Note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.release.xcconfig"; path = "Pods/Target Support Files/Pods-Note/Pods-Note.release.xcconfig"; sourceTree = "<group>"; };
 		7B089C3021B5DFA9001F412E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7B089C3221B5F02F001F412E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7B63F6D421AAE86F00A9BFCC /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		7B63F6D521AAE86F00A9BFCC /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		7B63F6D921AEEE5E00A9BFCC /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +55,10 @@
 		FE961C53219DB15600F627B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE961C5A219DB2D900F627B9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		FECE65F121A1BB42002B3F60 /* 620343-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "620343-200.png"; sourceTree = "<group>"; };
+		FEF9C16C21B98B0A00D921F1 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FEF9C16E21B98B0A00D921F1 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEF9C16F21B98B0A00D921F1 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +105,10 @@
 		FE33A8D1219DB316005EB8B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FEF9C16C21B98B0A00D921F1 /* User+CoreDataClass.swift */,
+				FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */,
+				FEF9C16E21B98B0A00D921F1 /* Note+CoreDataClass.swift */,
+				FEF9C16F21B98B0A00D921F1 /* Note+CoreDataProperties.swift */,
 				FE961C5A219DB2D900F627B9 /* Note.swift */,
 			);
 			path = Model;
@@ -113,10 +117,6 @@
 		FE961C38219DB14C00F627B9 = {
 			isa = PBXGroup;
 			children = (
-				7B089C3421B6A0A4001F412E /* Note+CoreDataClass.swift */,
-				7B089C3521B6A0A4001F412E /* Note+CoreDataProperties.swift */,
-				7B089C3621B6A0A4001F412E /* User+CoreDataClass.swift */,
-				7B089C3721B6A0A4001F412E /* User+CoreDataProperties.swift */,
 				FE961C43219DB14D00F627B9 /* Note */,
 				FE961C42219DB14D00F627B9 /* Products */,
 				6A5D4B801998550913A5DE2B /* Pods */,
@@ -292,20 +292,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BFA556721B18514002DC6FA /* NoteCollectionViewCell.swift in Sources */,
+				FEF9C17221B98B0A00D921F1 /* Note+CoreDataClass.swift in Sources */,
 				FE33A8D3219DC104005EB8B5 /* CreateViewController.swift in Sources */,
+				FEF9C17021B98B0A00D921F1 /* User+CoreDataClass.swift in Sources */,
 				FE961C4D219DB14D00F627B9 /* Note.xcdatamodeld in Sources */,
-				7B089C3921B6A0A4001F412E /* Note+CoreDataProperties.swift in Sources */,
 				FE961C47219DB14D00F627B9 /* ViewController.swift in Sources */,
 				7B657F4A21B1505B00639E09 /* SettingsViewController.swift in Sources */,
-				7B089C3A21B6A0A4001F412E /* User+CoreDataClass.swift in Sources */,
 				7B089C3121B5DFA9001F412E /* CoreDataStack.swift in Sources */,
-				7B089C3B21B6A0A4001F412E /* User+CoreDataProperties.swift in Sources */,
 				FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */,
 				FE961C5B219DB2D900F627B9 /* Note.swift in Sources */,
 				7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */,
-				7B089C3821B6A0A4001F412E /* Note+CoreDataClass.swift in Sources */,
+				FEF9C17121B98B0A00D921F1 /* User+CoreDataProperties.swift in Sources */,
 				7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */,
 				7B089C3321B5F02F001F412E /* LoginViewController.swift in Sources */,
+				FEF9C17321B98B0A00D921F1 /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Note/Note.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6SN3R2DE34;
+				DEVELOPMENT_TEAM = 9GW49H8XYF;
 				INFOPLIST_FILE = Note/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Note/Note.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6SN3R2DE34;
+				DEVELOPMENT_TEAM = 9GW49H8XYF;
 				INFOPLIST_FILE = Note/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

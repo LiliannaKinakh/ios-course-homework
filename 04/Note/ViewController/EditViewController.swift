@@ -32,8 +32,9 @@ class EditViewController: UIViewController {
         textTextField.text = "\(String(describing: thisNote.text))"
         imageView.image = thisNote.image
         
+        
         super.viewDidLoad()
-
+        self.hideKeyboard()
     }
     
     func attributeToSaveButton() {

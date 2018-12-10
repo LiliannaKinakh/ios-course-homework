@@ -21,7 +21,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboard()
         titleLabel.text = "Title"
         textLabel.text = "Text"
         attributeToSaveButton()
@@ -91,4 +91,20 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
           picker.dismiss(animated: true, completion: nil)
     }
     
+}
+extension UIViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 }
