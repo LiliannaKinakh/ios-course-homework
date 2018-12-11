@@ -8,15 +8,19 @@
 
 import CoreData
 
-class CoreDataStack: NSObject {
+class CoreDataStack {
 
     // MARK: Shared
+    
+    static var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
     
     static let currentStack = CoreDataStack()
 
     // MARK: Properties
     
-    lazy private var persistentContainer: NSPersistentContainer = {
+    static private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Note")
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -30,11 +34,11 @@ class CoreDataStack: NSObject {
     
     // MARK: Public
     
-    func currentContext() -> NSManagedObjectContext {
+   static func currentContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
-    func saveContext () {
+    static func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -46,25 +50,4 @@ class CoreDataStack: NSObject {
         }
     }
     
-    //MARK: Create Managed Object
-    
-    func newNote() -> Note {
-        let note = NSEntityDescription.insertNewObject(forEntityName: "Note", into: persistentContainer.viewContext) as! Note
-        return note
-    }
-    
-    func newUser() -> User {
-        let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: persistentContainer.viewContext) as! User
-        return user
-    }
-    
-    //MARK: remove Managed Object
-    
-    func remove(user: User) {
-        persistentContainer.viewContext.delete(user)
-    }
-    
-    func remove(note: Note) {
-        persistentContainer.viewContext.delete(note)
-    }
 }

@@ -32,8 +32,6 @@ class Settings {
 
 
 class SettingsViewController: UIViewController {
-
-  
     
     @IBOutlet weak var labelSettings: UILabel!
     

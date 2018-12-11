@@ -17,8 +17,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
-    var delegate: NoteDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
@@ -38,13 +36,11 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func SaveButton(_ sender: Any) {
         let title = titleTextField.text ?? ""
         let text = textTextField.text ?? ""
-        let image = imageView.image
-        
-        let note = Notes(title: title, text: text)
-        note.image = image
-        
-        delegate?.saveNote(note: note)
-        
+
+        let note = Note(context: CoreDataStack.context)
+        note.text = text
+        note.title = title
+        CoreDataStack.saveContext()
         
         navigationController?.popViewController(animated: true)
    
@@ -78,8 +74,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    
-  //  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         imageView.image = image

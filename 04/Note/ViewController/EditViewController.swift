@@ -10,9 +10,8 @@ import UIKit
 
 class EditViewController: UIViewController {
     
-    var thisNote = Notes(title: "", text: "")
-    var pathIndex:Int = 0
-    var delegate: NoteDelegate?
+    var thisNote = Note()
+
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
@@ -28,13 +27,12 @@ class EditViewController: UIViewController {
         textLabel.text = "Text"
         attributeToSaveButton()
         
-        titleTextField.text = "\(String(describing: thisNote.title))"
-        textTextField.text = "\(String(describing: thisNote.text))"
-        imageView.image = thisNote.image
-        
+        titleTextField.text = thisNote.title
+        textTextField.text =  thisNote.text
         
         super.viewDidLoad()
         self.hideKeyboard()
+        
     }
     
     func attributeToSaveButton() {
@@ -48,12 +46,10 @@ class EditViewController: UIViewController {
         let text = textTextField.text ?? ""
         let title = titleTextField.text ?? ""
        
-        
-        let editNote = Notes(title: title , text: text)
-        editNote.image =  thisNote.image
-        
-        delegate?.editNote(note: editNote, indexOfElement: pathIndex)
-        
+        thisNote.text = text
+        thisNote.title = title
+        CoreDataStack.saveContext()
+
         navigationController?.popViewController(animated: true)
       
     }

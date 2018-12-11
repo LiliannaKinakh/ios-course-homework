@@ -29,9 +29,9 @@ class NoteTableViewCell: UITableViewCell {
 
     }
     
-    func setupWith(note: Notes) {
+    func setupWith(note: Note) {
         titleLabel.text = note.title
-        leftImageView.image = note.image
+     //   leftImageView.image = note.image
         
     }
     

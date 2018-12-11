@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NoteDelegate {
-    var allNotes: [Notes] = []
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+    var allNotes: [Note] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,18 +27,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.isEditing = !tableView.isEditing
     }
     
-    func saveNote(note: Notes) {
+    func saveNote(note: Note) {
         allNotes.append(note)
+        tableView.reloadData()
     }
     
-    func editNote(note:Notes, indexOfElement:Int) {
+    func editNote(note:Note, indexOfElement:Int) {
         allNotes[indexOfElement] = note
         
     }
     
     //MARK: - Delegate
-   
-    
+
     private func setupTableView() {
         tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
@@ -80,8 +81,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: - Delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let commit = allNotes[indexPath.row]
+            CoreDataStack.context.delete(commit)
             allNotes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
+            
+            CoreDataStack.saveContext()
+        
         }
     }
     //MARK: - Move
@@ -121,23 +127,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Create" {
-            if let dest = segue.destination as? CreateViewController {
-                dest.delegate = self
-            }
-        }
+
         if segue.identifier == "Edit" {
             if  let dest = segue.destination as? EditViewController {
                 if let selectedIndex = tableView.indexPathForSelectedRow {
                     dest.thisNote = allNotes[selectedIndex.row]
-                    dest.pathIndex = selectedIndex.row
-                    dest.delegate = self
                 }
+                
                 if let selectedIndex = collectionView.indexPathsForSelectedItems?.first {
                     dest.thisNote = allNotes[selectedIndex.item]
-                    dest.pathIndex = selectedIndex.item
-                    dest.delegate = self
-                    
                 }
                 
             }
@@ -145,6 +143,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
         
     override func viewWillAppear(_ animated: Bool) {
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        do {
+            let note = try! CoreDataStack.context.fetch(fetchRequest)
+            self.allNotes = note
+            self.tableView.reloadData()
+        }
+        
         tableView.reloadData()
         collectionView?.reloadData()
         var setting = Settings(darkMood: false, viewCell: false)

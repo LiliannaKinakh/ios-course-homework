@@ -23,7 +23,6 @@
 		FE961C4D219DB14D00F627B9 /* Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE961C4B219DB14D00F627B9 /* Note.xcdatamodeld */; };
 		FE961C4F219DB15600F627B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE961C4E219DB15600F627B9 /* Assets.xcassets */; };
 		FE961C52219DB15600F627B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE961C50219DB15600F627B9 /* LaunchScreen.storyboard */; };
-		FE961C5B219DB2D900F627B9 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE961C5A219DB2D900F627B9 /* Note.swift */; };
 		FECE65F221A1BB42002B3F60 /* 620343-200.png in Resources */ = {isa = PBXBuildFile; fileRef = FECE65F121A1BB42002B3F60 /* 620343-200.png */; };
 		FEF9C17021B98B0A00D921F1 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16C21B98B0A00D921F1 /* User+CoreDataClass.swift */; };
 		FEF9C17121B98B0A00D921F1 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */; };
@@ -53,7 +52,6 @@
 		FE961C4E219DB15600F627B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE961C51219DB15600F627B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE961C53219DB15600F627B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE961C5A219DB2D900F627B9 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		FECE65F121A1BB42002B3F60 /* 620343-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "620343-200.png"; sourceTree = "<group>"; };
 		FEF9C16C21B98B0A00D921F1 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				FEF9C16D21B98B0A00D921F1 /* User+CoreDataProperties.swift */,
 				FEF9C16E21B98B0A00D921F1 /* Note+CoreDataClass.swift */,
 				FEF9C16F21B98B0A00D921F1 /* Note+CoreDataProperties.swift */,
-				FE961C5A219DB2D900F627B9 /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				7B657F4A21B1505B00639E09 /* SettingsViewController.swift in Sources */,
 				7B089C3121B5DFA9001F412E /* CoreDataStack.swift in Sources */,
 				FE961C45219DB14D00F627B9 /* AppDelegate.swift in Sources */,
-				FE961C5B219DB2D900F627B9 /* Note.swift in Sources */,
 				7B63F6D621AAE86F00A9BFCC /* NoteTableViewCell.swift in Sources */,
 				FEF9C17121B98B0A00D921F1 /* User+CoreDataProperties.swift in Sources */,
 				7B63F6DA21AEEE5E00A9BFCC /* EditViewController.swift in Sources */,

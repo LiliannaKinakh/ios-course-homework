@@ -18,7 +18,7 @@ class NoteCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func setupWith(note: Notes) {
+    func setupWith(note: Note) {
         titleLabel.text = note.title
         textLabel.text = note.text
     }
