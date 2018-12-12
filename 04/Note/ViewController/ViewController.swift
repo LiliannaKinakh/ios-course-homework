@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func setupCollectionView(){
         collectionView.register(UINib(nibName: "NoteCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.itemSize = CGSize(width: 80 , height: 80)
+        layout?.itemSize = CGSize(width: 200 , height: 100)
         
     
     }

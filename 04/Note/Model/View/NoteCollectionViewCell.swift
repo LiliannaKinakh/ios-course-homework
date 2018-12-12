@@ -12,10 +12,14 @@ class NoteCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var leftImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+ 
+        leftImageView.layer.cornerRadius = leftImageView.frame.height / 2
+        leftImageView.layer.backgroundColor = UIColor.red.cgColor
+        leftImageView.clipsToBounds = true
     }
 
     func setupWith(note: Note) {
