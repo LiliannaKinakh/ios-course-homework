@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var setting = Settings()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -153,10 +155,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.reloadData()
         collectionView?.reloadData()
-        var setting = Settings(darkMood: false, viewCell: false)
-        
-        tableView.isHidden = !setting.getviewCell()
-        collectionView.isHidden = setting.getviewCell()
+      //  var setting = Settings(darkMood: false, viewCell: false)
+        tableView.isHidden = !setting.getTypeOfDisplayCell()
+        collectionView.isHidden = setting.getTypeOfDisplayCell()
     }
     
 }
