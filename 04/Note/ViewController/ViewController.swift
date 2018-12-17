@@ -64,10 +64,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? NoteTableViewCell else {
-            return UITableViewCell()
+            return UITableViewCell() /// ???
         }
+
+   //     cell.setupWith(note: allNotes[indexPath.row])
+        let note = allNotes[indexPath.row]
+        cell.titleLabel.text = note.title
         
-        cell.setupWith(note: allNotes[indexPath.row])
+        if setting.isDarkModeOn == true {
+            cell.backgroundColor = .black
+            cell.titleLabel.textColor = .white
+        } else {
+            cell.backgroundColor = .white
+            cell.titleLabel.textColor = .black
+        }
+        cell.titleLabel.text = note.title
+        cell.leftImageView.image = CacheImage.sharedCacheImage.downloadCachedImage(key: note.title! as NSString)
         
         return cell
     }
@@ -84,7 +96,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let commit = allNotes[indexPath.row]
-            CoreDataStack.context.delete(commit)
+            DataManager.shared.deletedNote(note: commit)
+       //     CoreDataStack.context.delete(commit)
             allNotes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
             
@@ -114,7 +127,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return UICollectionViewCell()
         }
         
-        collectionCell.setupWith(note: allNotes[indexPath.row])
+        collectionCell.setupWith(note: allNotes[indexPath.row]) ////????
+        
+        if setting.isDarkModeOn == true {
+            collectionCell.backgroundColor = .black
+            collectionCell.textLabel?.textColor = .white
+        } else {
+            collectionCell.backgroundColor = .white
+            collectionCell.textLabel?.textColor = .black
+        }
         
         return collectionCell
         
@@ -146,19 +167,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     override func viewWillAppear(_ animated: Bool) {
         
-        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
-        do {
-            let note = try! CoreDataStack.context.fetch(fetchRequest)
-            self.allNotes = note
-            self.tableView.reloadData()
+        let some = setting.isDarkModeOn
+        if some == true {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
+            UIApplication.shared.statusBarStyle = .lightContent
+            self.tabBarController?.tabBar.barTintColor = UIColor.black
+            view.backgroundColor = .black
+            tableView.backgroundColor = .black
+            collectionView.backgroundColor = .black
+            
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view.backgroundColor = .white
+            tableView.backgroundColor = .white
+            collectionView.backgroundColor = .white
+            
         }
         
         tableView.reloadData()
-        collectionView?.reloadData()
-      //  var setting = Settings(darkMood: false, viewCell: false)
-        tableView.isHidden = !setting.getTypeOfDisplayCell()
-        collectionView.isHidden = setting.getTypeOfDisplayCell()
+        
+        DataManager.shared.getNotesObj { [unowned self] (notes) in
+            guard let checkedNotes = notes else {
+                //TODO:
+                //Show alert view
+                return
+            }
+            
+            self.allNotes = checkedNotes
+            
+             print(self.setting.shouldShowTableView)
+            if self.setting.shouldShowTableView {
+                print(self.setting.shouldShowTableView)
+                self.tableView.isHidden = !self.setting.shouldShowTableView
+                self.collectionView.isHidden = self.setting.shouldShowTableView
+                self.collectionView.reloadData()
+                self.tableView.reloadData()
+            } else {
+                self.tableView.isHidden = self.setting.shouldShowTableView
+                self.collectionView.isHidden = !self.setting.shouldShowTableView
+                self.collectionView.reloadData()
+                 self.tableView.reloadData()
+            }
+            
+           
+        }
     }
-    
 }
 

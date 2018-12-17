@@ -17,6 +17,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    var setting = Settings()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
@@ -36,11 +38,9 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func SaveButton(_ sender: Any) {
         let title = titleTextField.text ?? ""
         let text = textTextField.text ?? ""
-
-        let note = Note(context: CoreDataStack.context)
-        note.text = text
-        note.title = title
-        CoreDataStack.saveContext()
+        _ = CacheImage.sharedCacheImage.saveCachedImage(key: title as NSString, image: imageView.image)
+        
+        DataManager.shared.addNote(title: title, text: text)
         
         navigationController?.popViewController(animated: true)
    
@@ -83,6 +83,25 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
           picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let some = setting.isDarkModeOn
+        if some == true {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
+            UIApplication.shared.statusBarStyle = .lightContent
+            self.tabBarController?.tabBar.barTintColor = UIColor.black
+            view.backgroundColor = .black
+            
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view.backgroundColor = .white
+        }
     }
     
 }

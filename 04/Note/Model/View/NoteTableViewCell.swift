@@ -24,15 +24,5 @@ class NoteTableViewCell: UITableViewCell {
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-    
-    func setupWith(note: Note) {
-        titleLabel.text = note.title
-     //   leftImageView.image = note.image
-        
-    }
     
 }

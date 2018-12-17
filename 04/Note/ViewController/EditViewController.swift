@@ -21,6 +21,8 @@ class EditViewController: UIViewController {
     
     @IBOutlet weak var updateButton: UIButton!
     
+    var setting = Settings()
+    
     override func viewDidLoad() {
         
         titleLabel.text = "Title"
@@ -48,10 +50,40 @@ class EditViewController: UIViewController {
        
         thisNote.text = text
         thisNote.title = title
+
         CoreDataStack.saveContext()
 
         navigationController?.popViewController(animated: true)
       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let some = setting.isDarkModeOn
+        if some == true {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
+            UIApplication.shared.statusBarStyle = .lightContent
+            self.tabBarController?.tabBar.barTintColor = UIColor.black
+            view.backgroundColor = .black
+            titleLabel.textColor = .white
+            textLabel.textColor = .white
+            titleTextField.backgroundColor = .white
+            textTextField.backgroundColor = .white
+            updateButton.backgroundColor = .white
+            updateButton.titleLabel?.textColor = .black
+            imageView.backgroundColor = .white
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view.backgroundColor = .white
+            titleLabel.textColor = .black
+            textLabel.textColor = .black
+            titleTextField.backgroundColor = .white
+            textTextField.backgroundColor = .white
+        }
     }
     
 }
