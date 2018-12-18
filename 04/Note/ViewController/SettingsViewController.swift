@@ -48,19 +48,28 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         switchToDarkMode()
-        setting.shouldShowTableView = switchViewController.isOn 
+        switchViewController.isOn = UserDefaults.standard.bool(forKey: "darkMode")
         viewCells.isOn = UserDefaults.standard.bool(forKey: "typeOfDisplayCell")
+        print(switchViewController.isOn)
+        
+        
+        
     }
 
     @IBAction func changeMode(_ sender: Any) {
         switchToDarkMode()
+        setting.isDarkModeOn = switchViewController.isOn
     }
     
-
+    @IBAction func changeMethodShowCell(_ sender: Any) {
+         setting.shouldShowTableView = viewCells.isOn
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         Settings.shared.applyChanges()
+        
     }
     
 
@@ -69,8 +78,9 @@ class SettingsViewController: UIViewController {
         return check
     }
     func switchToDarkMode() {
+
         if Settings.shared.isDarkModeOn == false {
-            
+
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
@@ -79,6 +89,7 @@ class SettingsViewController: UIViewController {
             view.backgroundColor = .black
             labelSettings.textColor = .white
             labelViewCell.textColor = .white
+
             
         } else {
             self.navigationController?.navigationBar.isTranslucent = false
@@ -88,6 +99,7 @@ class SettingsViewController: UIViewController {
             view.backgroundColor = .white
             labelSettings.textColor = .black
             labelViewCell.textColor = .black
+
         }
     }
 }

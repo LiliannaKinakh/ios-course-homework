@@ -360,13 +360,6 @@
                                     <action selector="changeMode:" destination="esF-Iu-da9" eventType="valueChanged" id="DCr-rG-XpT"/>
                                 </connections>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-Z7-Ndk">
-                                <rect key="frame" x="170.5" y="304" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonTapped:" destination="esF-Iu-da9" eventType="touchUpInside" id="1xb-Z2-f3v"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCq-pR-mCT">
                                 <rect key="frame" x="16" y="109.5" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -375,15 +368,16 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgc-Ls-kut">
                                 <rect key="frame" x="304" y="99.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeMethodShowCell:" destination="esF-Iu-da9" eventType="valueChanged" id="vTM-BK-cor"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gfR-Z7-Ndk" firstAttribute="centerY" secondItem="9vq-Gb-FFm" secondAttribute="centerY" id="1Tg-kc-35t"/>
                             <constraint firstItem="azF-L2-W7r" firstAttribute="leading" secondItem="9vq-Gb-FFm" secondAttribute="leading" constant="16" id="3AH-xz-qyv"/>
                             <constraint firstItem="mgc-Ls-kut" firstAttribute="leading" secondItem="VVE-Kk-aDe" secondAttribute="leading" id="5Hb-1b-VbC"/>
                             <constraint firstItem="VVE-Kk-aDe" firstAttribute="leading" secondItem="azF-L2-W7r" secondAttribute="trailing" constant="8" id="CGb-Cx-ZdP"/>
-                            <constraint firstItem="gfR-Z7-Ndk" firstAttribute="centerX" secondItem="9vq-Gb-FFm" secondAttribute="centerX" id="HE7-qs-e6T"/>
                             <constraint firstItem="mgc-Ls-kut" firstAttribute="width" secondItem="VVE-Kk-aDe" secondAttribute="width" id="KdJ-CC-NrU"/>
                             <constraint firstItem="mgc-Ls-kut" firstAttribute="trailing" secondItem="VVE-Kk-aDe" secondAttribute="trailing" id="NF2-YJ-Rhp"/>
                             <constraint firstItem="9vq-Gb-FFm" firstAttribute="trailing" secondItem="VVE-Kk-aDe" secondAttribute="trailing" constant="22" id="R4K-GS-Qkh"/>

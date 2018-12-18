@@ -20,23 +20,22 @@ class DataManager {
         DispatchQueue.global(qos: .default).async {
             let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
             var notes: [Note]?
-            
+    
             do {
                 notes = try CoreDataStack.context.fetch(fetchRequest)
             }
             catch {
                 //TODO:
             }
-            
             DispatchQueue.main.async {
                 callback(notes)
             }
         }
     }
     
-    func addNote(title:String, text:String)  {
+    func addNote(title: String, text: String) {
         DispatchQueue.global(qos: .utility).async {
-            print(Thread.current)
+
             let note = Note(context: CoreDataStack.context)
             note.text = text
             note.title = title
@@ -45,6 +44,6 @@ class DataManager {
     }
     
     func deletedNote(note:Note) {
-         CoreDataStack.context.delete(note)
+        CoreDataStack.context.delete(note)
     }
 }

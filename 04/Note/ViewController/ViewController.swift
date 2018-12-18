@@ -67,7 +67,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return UITableViewCell() /// ???
         }
 
-   //     cell.setupWith(note: allNotes[indexPath.row])
         let note = allNotes[indexPath.row]
         cell.titleLabel.text = note.title
         
@@ -194,26 +193,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DataManager.shared.getNotesObj { [unowned self] (notes) in
             guard let checkedNotes = notes else {
                 //TODO:
+                
                 //Show alert view
                 return
             }
             
             self.allNotes = checkedNotes
             
-             print(self.setting.shouldShowTableView)
             if self.setting.shouldShowTableView {
-                print(self.setting.shouldShowTableView)
-                self.tableView.isHidden = !self.setting.shouldShowTableView
-                self.collectionView.isHidden = self.setting.shouldShowTableView
-                self.collectionView.reloadData()
                 self.tableView.reloadData()
             } else {
-                self.tableView.isHidden = self.setting.shouldShowTableView
-                self.collectionView.isHidden = !self.setting.shouldShowTableView
                 self.collectionView.reloadData()
-                 self.tableView.reloadData()
             }
             
+            self.tableView.isHidden = !self.setting.shouldShowTableView
+            self.collectionView.isHidden = self.setting.shouldShowTableView
            
         }
     }
