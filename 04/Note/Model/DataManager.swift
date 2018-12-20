@@ -33,12 +33,13 @@ class DataManager {
         }
     }
     
-    func addNote(title: String, text: String) {
+    func addNote(title: String, text: String, favorite: Bool) {
         DispatchQueue.global(qos: .utility).async {
 
             let note = Note(context: CoreDataStack.context)
             note.text = text
             note.title = title
+            note.favorite = favorite
             CoreDataStack.saveContext()
         }
     }
@@ -46,4 +47,5 @@ class DataManager {
     func deletedNote(note:Note) {
         CoreDataStack.context.delete(note)
     }
+    
 }
