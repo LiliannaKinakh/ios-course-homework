@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  Note
 //
 //  Created by Vladyslav Zhulavskyi on 11/15/18.
@@ -9,14 +9,14 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     var allNotes: [Note] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var setting = Settings()
+   // var setting = Settings()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let note = allNotes[indexPath.row]
         cell.titleLabel.text = note.title
         
-        if setting.isDarkModeOn == true {
+        if Settings.shared.isDarkModeOn {
             cell.backgroundColor = .black
             cell.titleLabel.textColor = .white
         } else {
@@ -124,18 +124,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NoteCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        collectionCell.setupWith(note: allNotes[indexPath.row]) ////????
+
         let note = allNotes[indexPath.row]
+        
         collectionCell.titleLabel.text = note.title
+        collectionCell.textLabel.text = note.text
         
-        
-        if setting.isDarkModeOn == true {
+        if Settings.shared.isDarkModeOn {
             collectionCell.backgroundColor = .black
             collectionCell.textLabel?.textColor = .white
+            collectionCell.titleLabel?.textColor = .white
         } else {
             collectionCell.backgroundColor = .white
             collectionCell.textLabel?.textColor = .black
+            collectionCell.titleLabel?.textColor = .black
         }
         
         return collectionCell
@@ -168,7 +170,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     override func viewWillAppear(_ animated: Bool) {
 
-        if setting.isDarkModeOn == true {
+        if Settings.shared.isDarkModeOn {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
@@ -200,14 +202,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             self.allNotes = checkedNotes
             
-            if self.setting.shouldShowTableView {
+            if Settings.shared.shouldShowTableView {
                 self.tableView.reloadData()
             } else {
                 self.collectionView.reloadData()
             }
             
-            self.tableView.isHidden = !self.setting.shouldShowTableView
-            self.collectionView.isHidden = self.setting.shouldShowTableView
+            self.tableView.isHidden = !Settings.shared.shouldShowTableView
+            self.collectionView.isHidden = Settings.shared.shouldShowTableView
            
         }
     }

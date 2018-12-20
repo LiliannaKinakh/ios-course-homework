@@ -8,33 +8,6 @@
 
 import UIKit
 
-class Settings {
-    
-    static let shared = Settings()
-    
-    var isDarkModeOn: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "darkMode")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "darkMode")
-        }
-    }
-    
-    var shouldShowTableView: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: "typeOfDisplayCell")
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "typeOfDisplayCell")        }
-    }
-    
-    func applyChanges() {
-        UserDefaults.standard.synchronize()
-    }
-
-}
-
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var labelSettings: UILabel!
@@ -42,56 +15,29 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var viewCells: UISwitch!
     @IBOutlet weak var labelViewCell: UILabel!
     
-    let setting = Settings()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // MARK: FIXME
+        switchViewController.setOn(Settings.shared.isDarkModeOn , animated: true)
         switchToDarkMode()
-        switchViewController.isOn = UserDefaults.standard.bool(forKey: "darkMode")
-        viewCells.isOn = UserDefaults.standard.bool(forKey: "typeOfDisplayCell")
-        print(switchViewController.isOn)
-        
-        
-        
     }
 
     @IBAction func changeMode(_ sender: Any) {
         switchToDarkMode()
-        setting.isDarkModeOn = switchViewController.isOn
+        Settings.shared.isDarkModeOn = switchViewController.isOn
     }
     
     @IBAction func changeMethodShowCell(_ sender: Any) {
-         setting.shouldShowTableView = viewCells.isOn
+         Settings.shared.shouldShowTableView = viewCells.isOn
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         Settings.shared.applyChanges()
-        
     }
     
-
-    static func sharedDarkMode() -> Bool {
-        let check = UserDefaults.standard.bool(forKey: "darkMode")
-        return check
-    }
     func switchToDarkMode() {
-
-        if Settings.shared.isDarkModeOn == false {
-
-            self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
-            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
-            UIApplication.shared.statusBarStyle = .lightContent
-            self.tabBarController?.tabBar.barTintColor = UIColor.black
-            view.backgroundColor = .black
-            labelSettings.textColor = .white
-            labelViewCell.textColor = .white
-
-            
-        } else {
+        if Settings.shared.isDarkModeOn {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white //user global variable
@@ -99,7 +45,15 @@ class SettingsViewController: UIViewController {
             view.backgroundColor = .white
             labelSettings.textColor = .black
             labelViewCell.textColor = .black
-
+            
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.black
+            view.backgroundColor = .black
+            labelSettings.textColor = .white
+            labelViewCell.textColor = .white
         }
     }
 }

@@ -27,6 +27,8 @@ import AlamofireImage
 //    }
 //}
 
+
+// MARK: FIXME
 class ImageCache {
     
    static let shared = ImageCache()

@@ -13,7 +13,7 @@
         <!--Diary-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,14 +344,11 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azF-L2-W7r">
                                 <rect key="frame" x="16" y="49" width="280" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="pne-B4-pyM"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VVE-Kk-aDe">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VVE-Kk-aDe">
                                 <rect key="frame" x="304" y="49" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="nuq-LB-syh"/>
@@ -382,9 +379,10 @@
                             <constraint firstItem="mgc-Ls-kut" firstAttribute="trailing" secondItem="VVE-Kk-aDe" secondAttribute="trailing" id="NF2-YJ-Rhp"/>
                             <constraint firstItem="9vq-Gb-FFm" firstAttribute="trailing" secondItem="VVE-Kk-aDe" secondAttribute="trailing" constant="22" id="R4K-GS-Qkh"/>
                             <constraint firstItem="azF-L2-W7r" firstAttribute="top" secondItem="9vq-Gb-FFm" secondAttribute="top" constant="29" id="RVa-P1-vaA"/>
-                            <constraint firstItem="xCq-pR-mCT" firstAttribute="width" secondItem="azF-L2-W7r" secondAttribute="width" id="bMg-Jh-aa0"/>
                             <constraint firstItem="xCq-pR-mCT" firstAttribute="leading" secondItem="azF-L2-W7r" secondAttribute="leading" id="c8H-Hm-7Fb"/>
                             <constraint firstItem="xCq-pR-mCT" firstAttribute="top" secondItem="azF-L2-W7r" secondAttribute="bottom" constant="40" id="jpW-Cs-2ZS"/>
+                            <constraint firstItem="VVE-Kk-aDe" firstAttribute="leading" secondItem="azF-L2-W7r" secondAttribute="trailing" constant="8" id="lbD-1m-DRL"/>
+                            <constraint firstItem="mgc-Ls-kut" firstAttribute="leading" secondItem="xCq-pR-mCT" secondAttribute="trailing" constant="8" id="mgw-xh-HlG"/>
                             <constraint firstItem="mgc-Ls-kut" firstAttribute="bottom" secondItem="xCq-pR-mCT" secondAttribute="bottom" id="pTM-wu-Odk"/>
                             <constraint firstItem="VVE-Kk-aDe" firstAttribute="top" secondItem="9vq-Gb-FFm" secondAttribute="top" constant="29" id="xCj-Sm-ZvM"/>
                         </constraints>

@@ -10,8 +10,6 @@ import UIKit
 
 class NoteTableViewCell: UITableViewCell {
 
-  
-    
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
   

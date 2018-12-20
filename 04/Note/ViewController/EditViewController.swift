@@ -21,8 +21,6 @@ class EditViewController: UIViewController {
     
     @IBOutlet weak var updateButton: UIButton!
     
-    var setting = Settings()
-    
     override func viewDidLoad() {
         
         titleLabel.text = "Title"
@@ -58,12 +56,10 @@ class EditViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let some = setting.isDarkModeOn
-        if some == true {
+        if Settings.shared.isDarkModeOn {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
-            UIApplication.shared.statusBarStyle = .lightContent
             self.tabBarController?.tabBar.barTintColor = UIColor.black
             view.backgroundColor = .black
             titleLabel.textColor = .white

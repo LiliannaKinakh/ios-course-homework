@@ -17,8 +17,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
-    var setting = Settings()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboard()
@@ -85,7 +83,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
   
     override func viewWillAppear(_ animated: Bool) {
-        if setting.isDarkModeOn == true {
+        if Settings.shared.isDarkModeOn {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable

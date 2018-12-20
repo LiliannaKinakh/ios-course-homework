@@ -21,10 +21,5 @@ class NoteCollectionViewCell: UICollectionViewCell {
         leftImageView.layer.backgroundColor = UIColor.red.cgColor
         leftImageView.clipsToBounds = true
     }
-
-    func setupWith(note: Note) {
-        titleLabel.text = note.title
-        textLabel.text = note.text
-    }
     
 }
