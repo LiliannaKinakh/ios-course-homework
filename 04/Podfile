@@ -3,5 +3,7 @@ use_frameworks!
 
 target 'Note' do
   pod 'KeychainAccess'
+  pod 'Alamofire', '~> 4.0'
+  pod 'AlamofireImage', '~> 3.0'
 end
 

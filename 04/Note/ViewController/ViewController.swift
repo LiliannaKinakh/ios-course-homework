@@ -78,8 +78,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.titleLabel.textColor = .black
         }
         cell.titleLabel.text = note.title
-        cell.leftImageView.image = CacheImage.sharedCacheImage.downloadCachedImage(key: note.title! as NSString)
-        
+        cell.leftImageView.image = ImageCache.shared.fetchImage(key: note.title!)
+     
         return cell
     }
     //MARK: - Edit
@@ -96,7 +96,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             let commit = allNotes[indexPath.row]
             DataManager.shared.deletedNote(note: commit)
-       //     CoreDataStack.context.delete(commit)
             allNotes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
             
@@ -127,6 +126,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         collectionCell.setupWith(note: allNotes[indexPath.row]) ////????
+        let note = allNotes[indexPath.row]
+        collectionCell.titleLabel.text = note.title
+        
         
         if setting.isDarkModeOn == true {
             collectionCell.backgroundColor = .black
@@ -165,13 +167,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
         
     override func viewWillAppear(_ animated: Bool) {
-        
-        let some = setting.isDarkModeOn
-        if some == true {
+
+        if setting.isDarkModeOn == true {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
-            UIApplication.shared.statusBarStyle = .lightContent
             self.tabBarController?.tabBar.barTintColor = UIColor.black
             view.backgroundColor = .black
             tableView.backgroundColor = .black

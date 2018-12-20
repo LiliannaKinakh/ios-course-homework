@@ -38,15 +38,14 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func SaveButton(_ sender: Any) {
         let title = titleTextField.text ?? ""
         let text = textTextField.text ?? ""
-        _ = CacheImage.sharedCacheImage.saveCachedImage(key: title as NSString, image: imageView.image)
-        
+
+        ImageCache.shared.saveImage(image: imageView.image ?? UIImage.init(named: "Dummy")!, key: title)
         DataManager.shared.addNote(title: title, text: text)
         
         navigationController?.popViewController(animated: true)
    
     }
     @IBAction func downloadImageTapped(_ sender: Any) {
-        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
@@ -84,14 +83,12 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
           picker.dismiss(animated: true, completion: nil)
     }
-    
+  
     override func viewWillAppear(_ animated: Bool) {
-        let some = setting.isDarkModeOn
-        if some == true {
+        if setting.isDarkModeOn == true {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
-            UIApplication.shared.statusBarStyle = .lightContent
             self.tabBarController?.tabBar.barTintColor = UIColor.black
             view.backgroundColor = .black
             

@@ -8,18 +8,45 @@
 
 import Foundation
 import UIKit
-class CacheImage {
-    static var sharedCacheImage = CacheImage()
+import Alamofire
+import AlamofireImage
+
+//class CacheImage {
+//    static var sharedCacheImage = CacheImage()
+//
+//    var cacheImage = NSCache<NSString, UIImage>()
+//
+//    func saveCachedImage(key: NSString, image: UIImage?) {
+//        guard let checkImage = image else {return}
+//        _ = self.cacheImage.setObject(checkImage, forKey: key)
+//    }
+//        func downloadCachedImage(key: NSString) -> UIImage {
+//
+//            guard let giveImage = self.cacheImage.object(forKey: key) else {return UIImage()}
+//            return giveImage
+//    }
+//}
+
+class ImageCache {
     
-    var cacheImage = NSCache<NSString, UIImage>()
+   static let shared = ImageCache()
     
-    func saveCachedImage(key: NSString, image: UIImage?) {
-        guard let checkImage = image else {return}
-        _ = self.cacheImage.setObject(checkImage, forKey: key)
+    let imageCache = AutoPurgingImageCache(
+        memoryCapacity: 100_000_000,
+        preferredMemoryUsageAfterPurge: 60_000_000
+    )
+
+    func saveImage (image: UIImage , key: String) {
+        imageCache.add(image, withIdentifier: key)
     }
-        func downloadCachedImage(key: NSString) -> UIImage {
-            
-            guard let giveImage = self.cacheImage.object(forKey: key) else {return UIImage()}
-            return giveImage
+    
+    
+    func fetchImage (key: String) -> Image? {
+        return imageCache.image(withIdentifier: key)
     }
+    
 }
+
+
+
+
