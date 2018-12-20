@@ -43,11 +43,8 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        let text = textTextField.text ?? ""
-        let title = titleTextField.text ?? ""
-       
-        thisNote.text = text
-        thisNote.title = title
+        thisNote.text = textTextField.text ?? ""
+        thisNote.title = titleTextField.text ?? ""
 
         CoreDataStack.saveContext()
 

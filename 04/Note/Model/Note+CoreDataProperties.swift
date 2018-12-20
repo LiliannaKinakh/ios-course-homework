@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  Note
 //
-//  Created by Vladyslav Zhulavskyi on 12/6/18.
+//  Created by Lilianna Kinakh on 12/20/18.
 //  Copyright © 2018 Vladyslav Zhulavskyi. All rights reserved.
 //
 //
@@ -20,6 +20,7 @@ extension Note {
     @NSManaged public var id: String?
     @NSManaged public var text: String?
     @NSManaged public var title: String?
+    @NSManaged public var favorite: Bool
     @NSManaged public var user: User?
 
 }
