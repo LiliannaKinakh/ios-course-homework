@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func changeMode(_ sender: Any) {
-        switchToDarkMode()
+        switchViewController.addTarget(self, action: #selector(switchToDarkMode), for: .allTouchEvents)
         Settings.shared.isDarkModeOn = switchViewController.isOn
     }
     
@@ -36,17 +36,8 @@ class SettingsViewController: UIViewController {
         Settings.shared.applyChanges()
     }
     
-    func switchToDarkMode() {
+    @objc func switchToDarkMode() {
         if Settings.shared.isDarkModeOn {
-            self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
-            self.navigationController?.navigationBar.tintColor = UIColor.white //user global variable
-            self.tabBarController?.tabBar.barTintColor = UIColor.black
-            view.backgroundColor = .white
-            labelSettings.textColor = .black
-            labelViewCell.textColor = .black
-            
-        } else {
             self.navigationController?.navigationBar.isTranslucent = false
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
             self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
@@ -54,6 +45,19 @@ class SettingsViewController: UIViewController {
             view.backgroundColor = .black
             labelSettings.textColor = .white
             labelViewCell.textColor = .white
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.white //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view.backgroundColor = .white
+            labelSettings.textColor = .black
+            labelViewCell.textColor = .black
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        switchToDarkMode()
+        switchViewController.setOn(Settings.shared.isDarkModeOn, animated: true)
+        viewCells.setOn(Settings.shared.shouldShowTableView, animated: true)
     }
 }
