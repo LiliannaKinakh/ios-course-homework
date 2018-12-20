@@ -78,7 +78,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.titleLabel.textColor = .black
         }
         cell.titleLabel.text = note.title
-        cell.leftImageView.image = ImageCache.shared.fetchImage(key: note.title!)
+        
+        var image = ImageCache.shared.fetchImage(key: note.title!)
+        
+        cell.leftImageView.image = image
      
         return cell
     }
