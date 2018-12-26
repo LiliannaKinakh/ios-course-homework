@@ -17,11 +17,9 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
-    var delegate: NoteDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboard()
         titleLabel.text = "Title"
         textLabel.text = "Text"
         attributeToSaveButton()
@@ -38,19 +36,14 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func SaveButton(_ sender: Any) {
         let title = titleTextField.text ?? ""
         let text = textTextField.text ?? ""
-        let image = imageView.image
-        
-        let note = Note(title: title, text: text)
-        note.image = image
-        
-        delegate?.saveNote(note: note)
-        
+
+        ImageCache.shared.saveImage(image: imageView.image ?? UIImage.init(named: "Dummy")!, key: title)
+        DataManager.shared.addNote(title: title, text: text, favorite: false)
         
         navigationController?.popViewController(animated: true)
    
     }
     @IBAction func downloadImageTapped(_ sender: Any) {
-        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
@@ -78,8 +71,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    
-  //  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         imageView.image = image
@@ -89,6 +80,23 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
           picker.dismiss(animated: true, completion: nil)
+    }
+  
+    override func viewWillAppear(_ animated: Bool) {
+        if Settings.shared.isDarkModeOn {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.black //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.white  //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.black
+            view.backgroundColor = .black
+            
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default //user global variable
+            self.navigationController?.navigationBar.tintColor = UIColor.black //user global variable
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            view.backgroundColor = .white
+        }
     }
     
 }

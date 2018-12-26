@@ -27,23 +27,33 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHQ-ho-Xix">
-                        <rect key="frame" x="94" y="31.5" width="195" height="21"/>
+                        <rect key="frame" x="94" y="27" width="42" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eg-5X-L0m">
+                        <rect key="frame" x="274" y="27" width="30" height="30"/>
+                        <state key="normal" title="Star"/>
+                        <connections>
+                            <action selector="starFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yi2-3c-N0J"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fHQ-ho-Xix" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6w3-W8-B8p"/>
                     <constraint firstItem="fHQ-ho-Xix" firstAttribute="leading" secondItem="Bcj-BW-bow" secondAttribute="trailing" constant="20" id="7jL-xs-zE8"/>
                     <constraint firstItem="Bcj-BW-bow" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hvr-yS-2wV"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="fHQ-ho-Xix" secondAttribute="trailing" constant="15" id="YJo-1k-RFI"/>
+                    <constraint firstItem="3eg-5X-L0m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PNk-cw-wWP"/>
+                    <constraint firstItem="3eg-5X-L0m" firstAttribute="bottom" secondItem="fHQ-ho-Xix" secondAttribute="bottom" id="SLK-lg-Kxl"/>
+                    <constraint firstItem="3eg-5X-L0m" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ZUU-7L-7WQ"/>
                     <constraint firstItem="Bcj-BW-bow" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kdc-vB-yPM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="leftImageView" destination="Bcj-BW-bow" id="n9N-9n-sRR"/>
+                <outlet property="starButton" destination="3eg-5X-L0m" id="C2e-m9-era"/>
                 <outlet property="titleLabel" destination="fHQ-ho-Xix" id="4rc-8H-ifJ"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="139.43028485757122"/>

@@ -10,11 +10,10 @@ import UIKit
 
 class NoteTableViewCell: UITableViewCell {
 
-  
-    
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-  
+    @IBOutlet weak var starButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -23,16 +22,13 @@ class NoteTableViewCell: UITableViewCell {
         leftImageView.clipsToBounds = true
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
     
-    func setupWith(note: Note) {
-        titleLabel.text = note.title
-        leftImageView.image = note.image
-        
+
+    @IBAction func starFavorite(_ sender: Any) {
+//        if starButton.isTouchInside == true {
+//            starButton.backgroundColor = .red
+//        }else{
+//            starButton.backgroundColor = .blue
+//        }
     }
-    
 }
